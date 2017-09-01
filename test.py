@@ -22,8 +22,10 @@ def balanceshow():
     balance = r.json()
     backlight.rgb(160,0,0)
     lcd.set_cursor_position(0, 0)
-    lcd.write("B: {b}{c}".format(b=balance['balance']/100, c=balance['currency']))
+    lcd.write("   ~ Monzo ~    ")
     lcd.set_cursor_position(0, 1)
+    lcd.write("B: {b}{c}".format(b=balance['balance']/100, c=balance['currency']))
+    lcd.set_cursor_position(0, 2)
     lcd.write("S: {s}{c}".format(s=balance['spend_today']/100, c=balance['currency']))
 
 if __name__ == "__main__":
