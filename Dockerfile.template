@@ -1,6 +1,21 @@
+FROM resin/%%RESIN_MACHINE_NAME%%-alpine:3.6 AS build
+
+WORKDIR /usr/src/app
+
+RUN apk add --no-cache build-base python2 python2-dev py2-pip py-setuptools libffi-dev
+
+COPY requirements.txt ./
+RUN pip install -r requirements.txt
+
+RUN find /usr/lib/python2.7/site-packages -type f -name "*.pyc" -exec rm -f {} \;
+
 FROM resin/%%RESIN_MACHINE_NAME%%-alpine:3.6
 
 WORKDIR /usr/src/app
-ENV INITSYSTEM=on
+RUN apk add --no-cache python2
 
-CMD while : ; do echo "Idling..."; sleep 60; done
+COPY --from=build /usr/lib/python2.7/site-packages /usr/lib/python2.7/site-packages
+
+COPY test.py ./
+
+CMD python test.py; while : ; do echo "Idling..."; sleep 60; done

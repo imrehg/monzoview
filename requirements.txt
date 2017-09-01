@@ -1,0 +1,7 @@
+# Display-o-Tron HAT support
+dot3k==2.0.1
+smbus-cffi==0.5.1
+# Web service
+Flask==0.12.2
+Flask-RESTful==0.3.6
+requests==2.18.4
