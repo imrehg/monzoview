@@ -1,0 +1,6 @@
+FROM resin/%%RESIN_MACHINE_NAME%%-alpine:3.6
+
+WORKDIR /usr/src/app
+ENV INITSYSTEM=on
+
+CMD while : ; do echo "Idling..."; sleep 60; done
