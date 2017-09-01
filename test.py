@@ -10,7 +10,7 @@ lcd.clear()
 ACCOUNT_ID = os.getenv('ACCOUNT_ID')
 ACCESS_TOKEN = os.getenv('ACCESS_TOKEN')
 
-def banaceshow():
+def balanceshow():
     URL = "https://api.monzo.com/balance"
     payload = {'account_id': ACCOUNT_ID}
     headers = {'Authorization': 'Bearer {}'.format(ACCESS_TOKEN)}
