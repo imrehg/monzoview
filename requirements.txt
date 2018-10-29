@@ -4,4 +4,4 @@ smbus-cffi==0.5.1
 # Web service
 Flask==0.12.2
 Flask-RESTful==0.3.6
-requests==2.18.4
+requests==2.20.0
